@@ -25,3 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('bidders', BidderController::class);
 Route::resource('items', ItemController::class);
+
+
+
+//Route::get('biddersTest', [BidderController::class, 'test'])->name('test');

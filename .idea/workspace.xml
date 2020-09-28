@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="31439698-96c9-4f24-a4a1-feba49cd8b2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/SaveItemRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/flash-massage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ItemController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/items/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/items/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/items/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/items/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/items/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/items/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,14 +143,18 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1hdXsi3JFQVAXTW56qUSbiDIcG2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../activity-system" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -179,7 +193,10 @@
       <option name="presentableId" value="Default" />
       <updated>1600342150781</updated>
       <workItem from="1600342151824" duration="9589000" />
-      <workItem from="1600430115223" duration="333000" />
+      <workItem from="1600430115223" duration="1554000" />
+      <workItem from="1601016433505" duration="2051000" />
+      <workItem from="1601269302548" duration="72000" />
+      <workItem from="1601269406564" duration="15437000" />
     </task>
     <task id="LOCAL-00001" summary="Create Bidder and Item controller, store new bidder and item">
       <created>1600430182170</created>
@@ -188,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600430182170</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Create Bidder and Item controller, store new bidder and item">
+      <created>1600430604226</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1600430604226</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +221,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Create Bidder and Item controller, store new bidder and item" />
     <option name="LAST_COMMIT_MESSAGE" value="Create Bidder and Item controller, store new bidder and item" />
   </component>
@@ -205,14 +230,15 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="667" y="331" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1600426919938" />
-    <state x="552" y="2" key="CommitChangelistDialog2" timestamp="1600430181573">
+    <state x="552" y="2" key="CommitChangelistDialog2" timestamp="1600430603822">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="552" y="2" key="CommitChangelistDialog2/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1600430181573" />
-    <state x="717" y="331" key="FileChooserDialogImpl" timestamp="1600423402105">
+    <state x="552" y="2" key="CommitChangelistDialog2/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1600430603822" />
+    <state x="717" y="331" key="FileChooserDialogImpl" timestamp="1601275541525">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="717" y="331" key="FileChooserDialogImpl/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1600423402105" />
+    <state x="574" y="236" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1601031945341" />
+    <state x="717" y="331" key="FileChooserDialogImpl/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1601275541525" />
     <state width="1760" height="265" key="GridCell.Tab.0.bottom" timestamp="1600430062596">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
@@ -229,17 +255,18 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state width="1760" height="265" key="GridCell.Tab.0.right/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1600430062596" />
-    <state x="754" y="495" key="NewPhpFileDialog" timestamp="1600423753757">
+    <state x="754" y="495" key="NewPhpFileDialog" timestamp="1601275636184">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="754" y="495" key="NewPhpFileDialog/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1600423753757" />
-    <state x="528" y="250" key="Vcs.Push.Dialog.v2" timestamp="1600430184146">
+    <state x="754" y="495" key="NewPhpFileDialog/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1601275636184" />
+    <state x="528" y="250" key="Vcs.Push.Dialog.v2" timestamp="1600430605870">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="528" y="250" key="Vcs.Push.Dialog.v2/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1600430184146" />
-    <state x="600" y="284" width="672" height="678" key="search.everywhere.popup" timestamp="1600423782523">
+    <state x="528" y="250" key="Vcs.Push.Dialog.v2/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1600430605870" />
+    <state x="600" y="284" width="672" height="678" key="search.everywhere.popup" timestamp="1601274002015">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="600" y="284" width="672" height="678" key="search.everywhere.popup/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1600423782523" />
+    <state x="480" y="202" width="672" height="484" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1601023126083" />
+    <state x="600" y="284" width="672" height="678" key="search.everywhere.popup/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1601274002015" />
   </component>
 </project>
