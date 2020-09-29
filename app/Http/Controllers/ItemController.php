@@ -21,7 +21,9 @@ class ItemController extends Controller
 
     public function show($id)
     {
+        $item = Item::findOrFail($id);
 
+        return view('items.show', compact('item'));
     }
 
     public function create()
@@ -50,13 +52,25 @@ class ItemController extends Controller
         return view('items.edit', compact('item'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id, SaveItemRequest $saveItemRequest)
     {
+        $item = Item::findOrFail($id);
+        $item->name = $request->name;
+        $item->description = $request->description;
+        $item->resaleprice = $request->rprice;
+        $item->winbidder = $request->wbidder;
+        $item->winprice = $request->wprice;
+        $item->save();
 
+        return redirect()->route('items.index')->with('success', 'Item was updated');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
+        $item = Item::findOrFail($id);
+        //dd($item);
+        $item->delete();
 
+        return redirect()->route('items.index')->with('success', 'Item was deleted');
     }
 }

@@ -20,7 +20,7 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">id</th>
                                     <th scope="col">Item</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Re-sale price</th>
@@ -34,12 +34,16 @@
                                 <tr>
                                     <td><strong>{{ $item->id }}</strong></td>
                                     <td><strong>{{ $item->name }}</strong></td>
-                                    <td><strong>{{ $item->description }}</strong></td>
+                                    <td><a href="{{ route('items.show', $item->id) }}" class="read-more-btn btn-success"><strong>{{ $item->description }}</strong></a></td>
                                     <td><strong>{{ $item->resaleprice }}</strong></td>
                                     <td><strong>{{ $item->winbidder }}</strong></td>
                                     <td><strong>{{ $item->winprice }}</strong></td>
-                                    <td><a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary">Edit</a>
-                                        <a href="{{ route('items.destroy', $item->id) }}" class="btn btn-danger">Delete</a>
+                                    <td><a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary">Edit</a><hr>
+                                        <form action="{{ route('items.destroy', $item->id) }}" method="post">
+                                            @csrf
+                                            {{ method_field('DELETE') }}
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

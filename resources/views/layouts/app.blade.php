@@ -55,7 +55,6 @@
                         </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('bidders.index') }}">{{ __('Bidders') }}</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -63,11 +62,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
+                                        <a class="dropdown-item" href="{{ route('bidders.index') }}">{{ __('Bidders') }}</a>
+                                        <a class="dropdown-item" href="{{ route('bidders.create') }}">{{ __('New Bidders') }}</a>
+                                    <hr>
                                         <a class="dropdown-item" href="{{ route('items.index') }}">Items</a>
                                         <a class="dropdown-item" href="{{ route('items.create') }}">New item</a>
                                         <a class="dropdown-item" href="#">User items</a>
-
+                                    <hr>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

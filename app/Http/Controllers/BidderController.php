@@ -14,7 +14,7 @@ class BidderController extends Controller
 
     public function index()
     {
-        $bidders = Bidder::all();
+        $bidders = Bidder::orderByDesc('id')->get();
         return view('bidders.index', compact('bidders'));
     }
 
@@ -25,26 +25,46 @@ class BidderController extends Controller
 
     public function create()
     {
-
+        return view('bidders.create');
     }
 
     public function store(Request $request)
     {
+        $bidder = new Bidder();
+        $bidder->lastname = $request->lastname;
+        $bidder->firstname = $request->firstname;
+        $bidder->address = $request->address;
+        $bidder->phone = $request->phone;
+        $bidder->save();
 
+        return redirect()->route('bidders.index')->with('success', 'Bidder was created');
     }
 
     public function edit($id)
     {
+        $bidder = Bidder::findOrFail($id);
+
+        return view('bidders.edit', compact('bidder'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $bidder = Bidder::findOrFail($id);
+        $bidder->lastname = $request->lastname;
+        $bidder->firstname = $request->firstname;
+        $bidder->address = $request->address;
+        $bidder->phone = $request->phone;
+        $bidder->save();
+
+        return redirect()->route('bidders.index')->with('success', 'Bidder was updated');
 
     }
 
-    public function update(Request $request)
+    public function destroy($id)
     {
+        $bidder = Bidder::findOrFail($id);
+        $bidder->delete();
 
-    }
-
-    public function delete($id)
-    {
-
+        return redirect()->route('bidders.index')->with('success', 'Bidder was deleted');
     }
 }
