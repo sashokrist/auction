@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bidder;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BidderController extends Controller
@@ -14,7 +15,13 @@ class BidderController extends Controller
 
     public function index()
     {
-        $bidders = Bidder::orderByDesc('id')->get();
+        $bidder = User::whereId(auth()->user()->id)->first();
+        $bidders = $bidder->items;
+        //dd($bidders);
+      /*  foreach ($bid as $item){
+            dd($item->id);
+        }
+    */
         return view('bidders.index', compact('bidders'));
     }
 
@@ -30,14 +37,7 @@ class BidderController extends Controller
 
     public function store(Request $request)
     {
-        $bidder = new Bidder();
-        $bidder->lastname = $request->lastname;
-        $bidder->firstname = $request->firstname;
-        $bidder->address = $request->address;
-        $bidder->phone = $request->phone;
-        $bidder->save();
 
-        return redirect()->route('bidders.index')->with('success', 'Bidder was created');
     }
 
     public function edit($id)
