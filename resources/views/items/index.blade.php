@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
     <div class="container">
@@ -34,7 +34,7 @@
                                 <tr>
                                     <td><strong>{{ $item->id }}</strong></td>
                                     <td><strong>{{ $item->name }}</strong></td>
-                                    <td><a href="{{ route('items.show', $item->id) }}" class="read-more-btn btn-success"><strong>{{ $item->description }}</strong></a></td>
+                                    <td><a href="{{ route('items.show', $item->id) }}" class="btn-success"><strong>{{ $item->description }}</strong></a></td>
                                     <td><strong>{{ $item->resaleprice }}</strong></td>
                                     <td><strong>{{ $item->winbidder }}</strong></td>
                                     <td><strong>{{ $item->winprice }}</strong></td>

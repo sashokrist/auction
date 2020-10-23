@@ -25,6 +25,12 @@ class BidderController extends Controller
         return view('bidders.index', compact('bidders'));
     }
 
+    public function allBidders()
+    {
+        $bidders = User::all();
+        return view('bidders.all', compact('bidders'));
+    }
+
     public function show($id)
     {
 

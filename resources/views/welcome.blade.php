@@ -1,42 +1,77 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="card">
-                                    <div class="card-header">{{ __('Dashboard') }}</div>
-                                    <div class="card-body">
-                                        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                                            <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                                                @auth
-                                                    <a href="{{ url('/bidders') }}" class="btn btn-primary underline">My bid</a>
-                                                    <a href="{{ route('items.index') }}" class="btn btn-primary underline">Buy Item</a>
-                                                    <a class="btn btn-primary" href="{{ route('items.create') }}">Sale item</a>
-                                                    <a class="btn btn-primary" href="{{ route('logout') }}"
-                                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                                        {{ __('Logout') }}
-                                                    </a>
-                                                @endauth
-                                                @guest
-                                                    <a href="{{ route('items.index') }}" class="btn btn-primary underline">Buy Item</a>
-                                                    <a class="btn btn-primary" href="{{ route('items.create') }}">Sale item</a>
-                                                        <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                                    <a href="{{ route('register') }}" class="btn btn-primary underline">Register Bidder</a>
-                                                @endguest
-                                            </div>
-                                            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                                                <div class="grid grid-cols-1 md:grid-cols-2">
-                                                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                                                        Build v{{ Illuminate\Foundation\Application::VERSION }}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
+                    @endif
+                    <div class="card-header text-center"><h1>{{ __('Welcome to SJ Auction') }}</h1></div>
+
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Item</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Re-sale price</th>
+                                <th scope="col">Win bidder id</th>
+                                <th scope="col">Win price</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($items as $item)
+                                <tr>
+                                    <td><strong>{{ $item->id }}</strong></td>
+                                    <td><strong>{{ $item->name }}</strong></td>
+                                    <td><strong>{{ $item->description }}</strong></td>
+                                    <td><strong>{{ $item->resaleprice }}</strong></td>
+                                    <td><strong>{{ $item->winbidder }}</strong></td>
+                                    <td>
+                                            @if ( $item->winprice === null)
+                                                <strong>{{ $item->resaleprice }}</strong>
+                                            @else
+                                                <strong>   {{ $item->winprice }}</strong>
+                                            @endif
+                                           </td>
+                                    <td>
+                                        @if ($item->active === 1)
+                                            <a href="{{ route('items.show', $item->id) }}" class="btn-success"><strong>Bet</strong></a>
+                                        @else
+                                            <strong>Sold</strong>
+                                        @endif
+                                        {{--<a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary">Edit</a><hr>
+                                        <form action="{{ route('items.destroy', $item->id) }}" method="post">
+                                            @csrf
+                                            {{ method_field('DELETE') }}
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form>--}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+
+                        </table>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div>
+           <p style="font-size: 16px;">
+               {{ $items->links() }}
+           </p>
+        </div>
+
+    </div>
 @endsection
 

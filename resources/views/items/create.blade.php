@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
     <div class="container">
@@ -32,17 +32,10 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label>Win Bidder</label>
-                                <input type="number"  name="wbidder" class="form-control"   placeholder="Enter win bidder id">
+                                Item wil be available until:
+                                <input type="date"  class="form-control" name="created_at">
                                 @if ($errors->any())
-                                    <label for="wbidder" class="error" style="color: red">{{ $errors->first('wbidder') }}</label>
-                                @endif
-                            </div>
-                            <div class="form-check">
-                                <label>Win price</label>
-                                <input type="number"  step="0.01" name="wprice" class="form-control"   placeholder="Enter win price">
-                                @if ($errors->any())
-                                    <label for="wprice" class="error" style="color: red">{{ $errors->first('wprice') }}</label>
+                                    <label for="created_at" class="error" style="color: red">{{ $errors->first('available') }}</label>
                                 @endif
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>

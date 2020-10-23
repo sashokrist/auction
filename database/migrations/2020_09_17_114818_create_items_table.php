@@ -19,7 +19,8 @@ class CreateItemsTable extends Migration
             $table->text('description');
             $table->double('resaleprice');
             $table->integer('winbidder');
-            $table->double('winprice');
+            $table->double('winprice')->nullable();
+            $table->timestamp('available')->nullable();
             $table->timestamps();
         });
     }
