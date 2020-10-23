@@ -7,6 +7,7 @@ use App\Models\Item;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class ItemController extends Controller
 {
@@ -20,7 +21,6 @@ class ItemController extends Controller
     {
         $date = Carbon::today();
         $items = Item::orderByDesc('id')->paginate(5);
-
       /*  foreach ($items as $item) {
             if($date->lte($item->available)){
                 dd('available');
@@ -36,11 +36,7 @@ class ItemController extends Controller
     {
         $date = Carbon::today();
         $item = Item::findOrFail($id);
-        if($date->lte($item->available)){
-            dd('available');
-        } else{
-            dd('not valid');
-        }
+
         return view('items.show', compact('item', 'date'));
     }
 
@@ -54,12 +50,20 @@ class ItemController extends Controller
 
     public function store(Request $request, SaveItemRequest $saveItemRequest)
     {
+
         $item = new Item();
         $item->name = $request->name;
         $item->description = $request->description;
         $item->resaleprice = $request->rprice;
         $item->winbidder = auth()->user()->id;
         $item->winprice = $request->wprice;
+        if ($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . '.'. $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('uploads/avatars/' . $filename));
+            $item->image = $filename;
+        }
+        $item->available = $request->available;
         $item->save();
 
         return redirect()->route('items.index')->with('success', 'Item was saved');

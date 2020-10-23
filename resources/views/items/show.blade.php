@@ -16,6 +16,7 @@
                     <div class="card-header text-center"><h1>{{ $item->name }} Id: {{ $item->id }}</h1></div>
 
                     <div class="card-body">
+                        <img src="{{ asset('uploads/avatars/'.$item->image) }}" alt="" id="avatar-img" width="100px" height="100px">
                         <h2>  Description: {{ $item->description }}</h2><br>
                         <h2> Re-sale price: {{ $item->resaleprice }}</h2><br>
                         <h2>  Win bidder: {{ $item->winbidder }}</h2><br>

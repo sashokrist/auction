@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Create Item') }}</div>
 
                     <div class="card-body">
-                        <form action="{{ route('items.store') }}" method="post">
+                        <form action="{{ route('items.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                               Name:
@@ -33,10 +33,17 @@
                             </div>
                             <div class="form-group">
                                 Item wil be available until:
-                                <input type="date"  class="form-control" name="created_at">
+                                <input type="date"  class="form-control" name="available">
                                 @if ($errors->any())
                                     <label for="created_at" class="error" style="color: red">{{ $errors->first('available') }}</label>
                                 @endif
+                            </div>
+                            <div class="form-group">
+                                <label for="avatar" id="choose-file">
+                                    <i class="fas fa-camera"></i>
+                                    <span>Choose file</span>
+                                    <input id="avatar" type="file" name="avatar">
+                                </label>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

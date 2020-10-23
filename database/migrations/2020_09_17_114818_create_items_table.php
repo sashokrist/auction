@@ -20,7 +20,9 @@ class CreateItemsTable extends Migration
             $table->double('resaleprice');
             $table->integer('winbidder');
             $table->double('winprice')->nullable();
+            $table->string('image')->default('item.jpg');
             $table->timestamp('available')->nullable();
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

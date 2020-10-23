@@ -51,7 +51,7 @@
                                     </td>
                                 </tr>
                                 @else
-                                    <tr style="text-decoration: line-through;">
+                                    <tr style="text-decoration: line-through; background-color: red">
                                         <td><strong>{{ $item->id }}</strong></td>
                                         <td><strong>{{ $item->name }}</strong></td>
                                         <td><strong>{{ $item->description }}</strong></td>
@@ -65,7 +65,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <strong style="color: red">Sold<br>
+                                            <strong>Sold<br>
                                            Expired: {{ $item->available->diffForHumans() }}</strong>
                                         </td>
                                     </tr>
