@@ -9,6 +9,7 @@ class Item extends Model
 {
     use HasFactory;
     protected $fillable = ['bet'];
+    protected $dates = ['available'];
 
     public function user()
     {

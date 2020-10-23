@@ -21,13 +21,26 @@ class ItemController extends Controller
         $date = Carbon::today();
         $items = Item::orderByDesc('id')->paginate(5);
 
+      /*  foreach ($items as $item) {
+            if($date->lte($item->available)){
+                dd('available');
+            } else{
+                dd('not valid');
+            }
+        }*/
+
         return view('welcome', compact('items', 'date'));
     }
 
     public function show($id)
     {
-        $item = Item::findOrFail($id);
         $date = Carbon::today();
+        $item = Item::findOrFail($id);
+        if($date->lte($item->available)){
+            dd('available');
+        } else{
+            dd('not valid');
+        }
         return view('items.show', compact('item', 'date'));
     }
 

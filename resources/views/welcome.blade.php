@@ -31,6 +31,7 @@
                             </thead>
                             <tbody>
                             @foreach($items as $item)
+                                @if ($date->lte($item->available))
                                 <tr>
                                     <td><strong>{{ $item->id }}</strong></td>
                                     <td><strong>{{ $item->name }}</strong></td>
@@ -45,22 +46,32 @@
                                             @endif
                                            </td>
                                     <td>
-                                        @if ($item->active === 1)
-                                            <a href="{{ route('items.show', $item->id) }}" class="btn-success"><strong>Bet</strong></a>
-                                        @else
-                                            <strong>Sold</strong>
-                                        @endif
-                                        {{--<a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary">Edit</a><hr>
-                                        <form action="{{ route('items.destroy', $item->id) }}" method="post">
-                                            @csrf
-                                            {{ method_field('DELETE') }}
-                                            <button class="btn btn-danger">Delete</button>
-                                        </form>--}}
+                                        <a href="{{ route('items.show', $item->id) }}" class="btn btn-danger"><strong>Bet</strong></a><br>
+                                        <strong style="color: red">Valid until: {{ $item->available }}</strong>
                                     </td>
                                 </tr>
+                                @else
+                                    <tr style="text-decoration: line-through;">
+                                        <td><strong>{{ $item->id }}</strong></td>
+                                        <td><strong>{{ $item->name }}</strong></td>
+                                        <td><strong>{{ $item->description }}</strong></td>
+                                        <td><strong>{{ $item->resaleprice }}</strong></td>
+                                        <td><strong>{{ $item->winbidder }}</strong></td>
+                                        <td>
+                                            @if ( $item->winprice === null)
+                                                <strong>{{ $item->resaleprice }}</strong>
+                                            @else
+                                                <strong>   {{ $item->winprice }}</strong>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <strong style="color: red">Sold<br>
+                                           Expired: {{ $item->available->diffForHumans() }}</strong>
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
                             </tbody>
-
                         </table>
                     </div>
                 </div>

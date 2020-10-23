@@ -20,8 +20,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         body{
-            margin-left: 15%;
-            margin-right: 15%;
+            margin-left: 10%;
+            margin-right: 10%;
             margin-bottom: 20px;
             border: black solid 1px;
             padding: 1%;
@@ -104,7 +104,7 @@
                 </div>
             </nav>
         </div>
-        <div class="col-2  py-3">
+        <div class="col-1  py-3">
             <a class="navbar-brand" href="{{ url('/') }}">
                Home
             </a><br>
@@ -127,7 +127,7 @@
                     <a href="{{ route('register') }}" >Register Bidder</a><br> <hr>
                 @endguest
             </div>
-        <div class="main col-10">
+        <div class="main col-11">
             @include('flash-massage')
             @yield('content')
         </div>
