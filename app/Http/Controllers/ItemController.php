@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateItemRequest;
 use App\Http\Requests\SaveItemRequest;
 use App\Models\Item;
 use Carbon\Carbon;
@@ -21,14 +22,6 @@ class ItemController extends Controller
     {
         $date = Carbon::today();
         $items = Item::orderByDesc('id')->paginate(5);
-      /*  foreach ($items as $item) {
-            if($date->lte($item->available)){
-                dd('available');
-            } else{
-                dd('not valid');
-            }
-        }*/
-
         return view('welcome', compact('items', 'date'));
     }
 
@@ -48,7 +41,7 @@ class ItemController extends Controller
         return redirect('login')->with('error', 'You must login first.');
     }
 
-    public function store(Request $request, SaveItemRequest $saveItemRequest)
+    public function store(Request $request, CreateItemRequest $createItemRequest)
     {
 
         $item = new Item();
@@ -102,9 +95,20 @@ class ItemController extends Controller
         if ($request->bet < $item->resaleprice){
             return redirect()->back()->with('error', 'Your bet must be bigger than re sale price!');
         }
-        $item->winprice = $request->bet;
-        $item->save();
-        $bet = $request->bet;
-        return redirect()->back()->with('success', "You bet is: $bet");
+        $date = Carbon::today()->toDateString();
+        $available = $item->available->toDateString();
+        if ($date === $available){
+            $item->winprice = $request->bet;
+            $item->winbidder = auth()->user()->id;
+            $item->active = 0;
+            $item->save();
+            return redirect()->route('items.index')->with('success', 'CONGRATULATIONS, YOU WON');
+        } else{
+            $item->winprice = $request->bet;
+            $item->winbidder = auth()->user()->id;
+            $item->save();
+            $bet = $request->bet;
+            return redirect()->back()->with('success', "You bet is: $bet");
+        }
     }
 }

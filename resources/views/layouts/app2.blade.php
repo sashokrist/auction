@@ -15,6 +15,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -106,19 +108,19 @@
         </div>
         <div class="col-1  py-3">
             <a class="navbar-brand" href="{{ url('/') }}">
-               Home
+                <i class="fas fa-home"></i> Home
             </a><br>
             <hr>
                 @auth
-                <a href="{{ url('/all-bidders') }}" class=" underline">All bidders</a><br>
+                <a href="{{ url('/all-bidders') }}" class=" underline"><i class="fas fa-users"></i> Bidders</a><br>
                 <hr>
-                    <a href="{{ url('/bidders') }}" class=" underline">My bid</a><br>
+                    <a href="{{ url('/bidders') }}" class=" underline"><i class="fas fa-user"></i> {{ auth()->user()->name }}'s items</a><br>
                 <hr>
-                    <a  href="{{ route('items.create') }}">Sale item</a><br> <hr>
+                    <a  href="{{ route('items.create') }}"><i class="fas fa-plus-square"></i> Sale item</a><br> <hr>
                     <a  href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
                     </a><br> <hr>
                 @endauth
                 @guest

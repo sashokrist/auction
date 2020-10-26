@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31439698-96c9-4f24-a4a1-feba49cd8b2e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/CreateItemRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/avatars/1603706249.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ItemController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bidders/all.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bidders/all.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bidders/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bidders/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/items/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/items/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/items/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/items/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app2.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +222,7 @@
       <workItem from="1603172577079" duration="22811000" />
       <workItem from="1603350159923" duration="15130000" />
       <workItem from="1603428422521" duration="9936000" />
+      <workItem from="1603698842064" duration="7653000" />
     </task>
     <task id="LOCAL-00001" summary="Create Bidder and Item controller, store new bidder and item">
       <created>1600430182170</created>
@@ -271,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603446600967</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix">
+      <created>1603698932718</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1603698932719</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +304,8 @@
     <MESSAGE value="make betting function" />
     <MESSAGE value="implement valid until..." />
     <MESSAGE value="implement valid until... fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement valid until... fix" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="534" y="236" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603444976603">
@@ -297,10 +314,10 @@
     <state x="534" y="236" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1603444976603" />
     <state x="534" y="236" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834@0.0.1536.834" timestamp="1603180170474" />
     <state x="667" y="331" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1601366627527" />
-    <state x="442" y="0" key="CommitChangelistDialog2" timestamp="1603446600433">
+    <state x="442" y="0" key="CommitChangelistDialog2" timestamp="1603698932065">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="442" y="0" key="CommitChangelistDialog2/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1603446600433" />
+    <state x="442" y="0" key="CommitChangelistDialog2/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1603698932065" />
     <state x="442" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1603428473870" />
     <state x="552" y="2" key="CommitChangelistDialog2/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1601379048628" />
     <state x="574" y="236" key="FileChooserDialogImpl" timestamp="1603442329883">
@@ -334,16 +351,16 @@
     </state>
     <state x="603" y="353" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1603281939909" />
     <state x="754" y="495" key="NewPhpFileDialog/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1601275636184" />
-    <state x="422" y="178" key="Vcs.Push.Dialog.v2" timestamp="1603446602756">
+    <state x="422" y="178" key="Vcs.Push.Dialog.v2" timestamp="1603698935296">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="422" y="178" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1603446602756" />
+    <state x="422" y="178" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1603698935296" />
     <state x="422" y="178" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1603428477526" />
     <state x="528" y="250" key="Vcs.Push.Dialog.v2/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1601379051983" />
-    <state x="482" y="202" width="672" height="484" key="search.everywhere.popup" timestamp="1603281686488">
+    <state x="482" y="202" width="672" height="484" key="search.everywhere.popup" timestamp="1603705296438">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="482" y="202" width="672" height="484" key="search.everywhere.popup/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1603275512737" />
+    <state x="482" y="202" width="672" height="484" key="search.everywhere.popup/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1603705296438" />
     <state x="482" y="202" width="672" height="484" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1603281686488" />
     <state x="600" y="284" width="672" height="678" key="search.everywhere.popup/1920.127.1536.840/-1920.127.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1601540690102" />
   </component>

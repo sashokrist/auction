@@ -12,14 +12,14 @@
                             @csrf
                             <div class="form-group">
                               Name:
-                                <input type="text" name="name" class="form-control"  placeholder="Enter name">
+                                <input type="text" name="name" class="form-control" value="{{ old('name') }}"  placeholder="Enter name">
                                 @if ($errors->any())
                                     <label for="name" class="error" style="color: red">{{ $errors->first('name') }}</label>
                                 @endif
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea name="description" id="" cols="30" rows="5" placeholder="enter description"></textarea>
+                                <textarea name="description" id="" cols="30" rows="5" placeholder="enter description">{{ old('description') }}</textarea>
                                 @if ($errors->any())
                                     <label for="description" class="error" style="color: red">{{ $errors->first('description') }}</label>
                                 @endif

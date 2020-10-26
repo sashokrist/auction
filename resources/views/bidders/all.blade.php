@@ -24,11 +24,17 @@
                                     <td><strong>{{ $item->name }}</strong></td>
                                     <td><strong>{{ $item->address }}</strong></td>
                                     <td><strong>{{ $item->phone }}</strong></td>
-                                    <td><a href="{{ route('bidders.edit', $item->id) }}" class="btn btn-primary">Edit</a><hr>
-                                        <form action="{{ route('bidders.destroy', $item->id) }}" method="post">
-                                            @csrf
-                                            {{ method_field('DELETE') }}
-                                            <button class="btn btn-danger">Delete</button>
+                                    <td>
+                                        @if (Auth::user()->id === $item->id)
+                                            <a href="{{ route('bidders.edit', $item->id) }}" class="btn btn-primary">Edit</a><hr>
+                                            <form action="{{ route('bidders.destroy', $item->id) }}" method="post">
+                                                @csrf
+                                                {{ method_field('DELETE') }}
+                                                <button class="btn btn-danger">Delete</button>
+                                                @else
+                                                    <p>Not allowed</p>
+                                        @endif
+
                                         </form>
                                     </td>
                                 </tr>

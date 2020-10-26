@@ -15,7 +15,7 @@
                            <h2>Name: <strong>{{ $bidder->name }}</strong></h2> <br>
                             <h2>Description: <strong>{{ $bidder->description }}</strong></h2><br>
                             <h2>Re-sale price: <strong>{{ $bidder->resaleprice }}</strong></h2>
-                            <h2>Win bidder: <strong>{{ $bidder->winbidder }}</strong></h2>
+                          {{--  <h2>Win bidder: <strong>{{ $bidder->winbidder }}</strong></h2>--}}
                             <h2>Win price: <strong>{{ $bidder->winprice }}</strong></h2>
                             <a href="{{ route('bidders.edit', $bidder->id) }}" class="btn btn-primary">Edit</a><hr>
                             <form action="{{ route('bidders.destroy', $bidder->id) }}" method="post">

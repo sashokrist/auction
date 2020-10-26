@@ -1,13 +1,5 @@
 @extends('layouts.app2')
-<head>
-    <meta charset="utf-8">
-    <meta name="_token" content="{{csrf_token()}}" />
-    <title>Champion League Goalscorer</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script>
-</head>
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

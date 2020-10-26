@@ -31,7 +31,7 @@
                             </thead>
                             <tbody>
                             @foreach($items as $item)
-                                @if ($date->lte($item->available))
+                                @if ($item->active === 1))
                                 <tr>
                                     <td><strong>{{ $item->id }}</strong></td>
                                     <td><strong>{{ $item->name }}</strong></td>
@@ -51,7 +51,7 @@
                                     </td>
                                 </tr>
                                 @else
-                                    <tr style="text-decoration: line-through; background-color: red">
+                                    <tr style="text-decoration: line-through;  opacity: 0.3;">
                                         <td><strong>{{ $item->id }}</strong></td>
                                         <td><strong>{{ $item->name }}</strong></td>
                                         <td><strong>{{ $item->description }}</strong></td>
