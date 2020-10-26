@@ -46,7 +46,7 @@
                                                         <div class="row">
                                                             <div class="form-group col-md-4">
                                                                 <label for="Bet">Your Bet:</label>
-                                                                <input type="number" step="0.01" id="bet" name="bet" class="form-control"  placeholder="Enter your bet here...">
+                                                                <input type="number" step="0.01" id="bet" name="bet" value="{{ $item->winprice }}" class="form-control" >
                                                             </div>
                                                         </div>
                                                     </div>
@@ -68,7 +68,7 @@
             </div>
         </div>
     </div>
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+    {{--<script src="http://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous">
     </script>
@@ -111,5 +111,5 @@
                     }});
             });
         });
-    </script>
+    </script>--}}
 @endsection
