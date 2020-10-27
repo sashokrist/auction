@@ -51,7 +51,13 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
+                        <form action="{{ route('item-search') }}" method="post">
+                            @csrf
+                            <label>
+                                <input type="text" name="search" placeholder="enter item name here...">
+                            </label>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
                         <ul class="navbar-nav mr-auto">
 
                         </ul>
@@ -124,9 +130,11 @@
                     </a><br> <hr>
                 @endauth
                 @guest
-                    <p>To be able to buy, sale or list your items you must login first!</p>
-                    <a  href="{{ route('login') }}">{{ __('Login') }}</a><br> <hr>
-                    <a href="{{ route('register') }}" >Register Bidder</a><br> <hr>
+                <a  href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Login') }}</a><br> <hr>
+                <a href="{{ route('register') }}" ><i class="fas fa-user-plus"></i> Register Bidder</a><br> <hr>
+                <strong style="color: red">To be able to buy, sale or list your items you must login first!</strong>
+
+
                 @endguest
             </div>
         <div class="main col-11">

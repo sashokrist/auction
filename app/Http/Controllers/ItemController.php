@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateItemRequest;
 use App\Http\Requests\SaveItemRequest;
+use App\Mail\WinBidder;
 use App\Models\Item;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Intervention\Image\Facades\Image;
 
 class ItemController extends Controller
@@ -97,12 +100,16 @@ class ItemController extends Controller
         }
         $date = Carbon::today()->toDateString();
         $available = $item->available->toDateString();
+        $bet = $request->bet;
         if ($date === $available){
-            $item->winprice = $request->bet;
+            $item->winprice = $bet;
             $item->winbidder = auth()->user()->id;
             $item->active = 0;
             $item->save();
-            return redirect()->route('items.index')->with('success', 'CONGRATULATIONS, YOU WON');
+
+            Mail::to(auth()->user()->email)->send(new WinBidder($item));
+            return view('stripe', compact('bet'))->with('success', 'CONGRATULATIONS, YOU WON');
+            //return redirect()->route('items.index')->with('success', 'CONGRATULATIONS, YOU WON');
         } else{
             $item->winprice = $request->bet;
             $item->winbidder = auth()->user()->id;
@@ -110,5 +117,12 @@ class ItemController extends Controller
             $bet = $request->bet;
             return redirect()->back()->with('success', "You bet is: $bet");
         }
+    }
+
+    public function search(Request $request)
+    {
+        $text = $request->search;
+        $search = Item::whereRaw('MATCH (name, description) AGAINST (?)' , array($text))->get();
+        dd($search);
     }
 }

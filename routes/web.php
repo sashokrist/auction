@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\BidderController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\StripePaymentController;
 use App\Models\Item;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ItemController::class, 'index']);
+Route::get('/', [MainController::class, 'index']);
 
 Auth::routes();
 
@@ -26,6 +28,11 @@ Route::resource('bidders', BidderController::class);
 Route::get('all-bidders', [BidderController::class, 'allBidders'])->name('all-bidders');
 Route::resource('items', ItemController::class);
 Route::post('item-bet/{id}', [ItemController::class, 'itemBet'])->name('item-bet');
+Route::post('item-search', [ItemController::class, 'search'])->name('item-search');
+
+
+Route::get('stripe', [StripePaymentController::class, 'stripe'])->name('stripe');
+Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
 
 
 
