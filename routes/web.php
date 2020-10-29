@@ -3,7 +3,9 @@
 use App\Http\Controllers\BidderController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\UserController;
 use App\Models\Item;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +35,9 @@ Route::post('item-search', [ItemController::class, 'search'])->name('item-search
 
 Route::get('stripe', [StripePaymentController::class, 'stripe'])->name('stripe');
 Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
+
+Route::resource('roles', RoleController::class);
+Route::resource('users', UserController::class);
 
 
 

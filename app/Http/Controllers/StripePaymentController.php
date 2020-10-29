@@ -24,10 +24,14 @@ class StripePaymentController extends Controller
             "source" => $request->stripeToken,
             "description" => "Payment from SJ Auction."
         ]);
+        $username = auth()->user()->name;
+        $itemName = $request->itemName;
+        $amount = $request->bet * 100;
 
-        Session::flash('success', 'Payment successful!');
+        Session::flash('success', 'CONGRATULATIONS, Payment successful!');
 
         //return back();
-        return redirect()->route('items.index')->with('success', 'CONGRATULATIONS, YOU WON');
+       // return redirect()->route('items.index')->with('success', 'CONGRATULATIONS, YOU WON');
+        return view('success-payment')->with([ 'username' => $username, 'itemName' => $itemName, 'amount' => $amount ]);
     }
 }

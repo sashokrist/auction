@@ -54,7 +54,7 @@
                         <form action="{{ route('item-search') }}" method="post">
                             @csrf
                             <label>
-                                <input type="text" name="search" placeholder="enter item name here...">
+                                <input type="text" name="search" class="form-control" placeholder="enter item name here...">
                             </label>
                             <button type="submit" class="btn btn-primary">Search</button>
                         </form>
@@ -88,12 +88,14 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('bidders.index') }}">{{ __('Bidders') }}</a>
-                                        <a class="dropdown-item" href="{{ route('bidders.create') }}">{{ __('New Bidders') }}</a>
+                                        <a class="dropdown-item" href="{{ route('users.index') }}">{{ __('Bidders') }}</a>
+                                        <a class="dropdown-item" href="{{ route('register') }}">{{ __('New Bidders') }}</a>
+                                        <hr>
+                                        <a class="dropdown-item" href="{{ route('roles.index') }}">Manage Role</a><br> <hr>
                                         <hr>
                                         <a class="dropdown-item" href="{{ route('items.index') }}">Items</a>
                                         <a class="dropdown-item" href="{{ route('items.create') }}">New item</a>
-                                        <a class="dropdown-item" href="#">User items</a>
+                                        <a href="{{ url('/bidders') }}" class=" dropdown-item">{{ auth()->user()->name }}'s items</a>
                                         <hr>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
@@ -118,16 +120,19 @@
             </a><br>
             <hr>
                 @auth
-                <a href="{{ url('/all-bidders') }}" class=" underline"><i class="fas fa-users"></i> Bidders</a><br>
+                <a href="{{ route('users.index') }}" class=" underline"><i class="fas fa-users"></i> Bidders</a><br><hr>
+                <a class="underline" href="{{ route('roles.index') }}">Manage Role</a><br> <hr>
+                <a href="{{ url('/bidders') }}" class=" underline"><i class="fas fa-user"></i> {{ auth()->user()->name }}'s items</a><br>
                 <hr>
-                    <a href="{{ url('/bidders') }}" class=" underline"><i class="fas fa-user"></i> {{ auth()->user()->name }}'s items</a><br>
-                <hr>
-                    <a  href="{{ route('items.create') }}"><i class="fas fa-plus-square"></i> Sale item</a><br> <hr>
-                    <a  href="{{ route('logout') }}"
+                <a  href="{{ route('items.create') }}"><i class="fas fa-plus-square"></i> Sale item</a><br> <hr>
+                <a  href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
                     </a><br> <hr>
+               {{-- <a class="nav-link" href="{{ route('users.index') }}">Manage Users</a><br> <hr>--}}
+
+                <a class="nav-link" href="{{ route('items.index') }}">Manage Items</a><br> <hr>
                 @endauth
                 @guest
                 <a  href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Login') }}</a><br> <hr>

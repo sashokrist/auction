@@ -58,6 +58,7 @@
                         id="payment-form">
                         @csrf
                         <input type="hidden" value="{{ $bet }}" name="bet">
+                        <input type="hidden" value="{{ $itemName }}" name="itemName">
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
                                 <label class='control-label'>Name on Card</label> <input

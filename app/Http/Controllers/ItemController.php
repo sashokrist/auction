@@ -19,6 +19,10 @@ class ItemController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:product-create', ['only' => ['create','store']]);
+        $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:product-delete', ['only' => ['destroy']]);
     }
 
     public function index()
@@ -108,7 +112,8 @@ class ItemController extends Controller
             $item->save();
 
             Mail::to(auth()->user()->email)->send(new WinBidder($item));
-            return view('stripe', compact('bet'))->with('success', 'CONGRATULATIONS, YOU WON');
+            $itemName = $item->name;
+            return view('stripe', compact('bet', 'itemName'))->with('success', 'CONGRATULATIONS, YOU WON');
             //return redirect()->route('items.index')->with('success', 'CONGRATULATIONS, YOU WON');
         } else{
             $item->winprice = $request->bet;
@@ -123,6 +128,6 @@ class ItemController extends Controller
     {
         $text = $request->search;
         $search = Item::whereRaw('MATCH (name, description) AGAINST (?)' , array($text))->get();
-        dd($search);
+        return view('items.search', compact('search'));
     }
 }
